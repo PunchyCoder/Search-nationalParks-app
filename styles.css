@@ -1,10 +1,5 @@
-.results  {
-  margin: 10px;
-  padding: 10px;
-  border: solid 2px orange;
-}
-
-.error {
-  color: red;
-  font-family: san serif;
+li {
+	background-color: lightgrey;
+	border: solid 2px grey;
+	border-radius: 8%;
 }
