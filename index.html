@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>National Parks API App</title>
-
+	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 	<div style="display:none;" > api_key=43MwYCVPjSmg3YJxXEaUwf3BM9vH1RvRviKofC1P </div>
@@ -12,20 +12,22 @@
 		<input class="js-searchTerm" type="text" name="searchTerm" placeholder="Search Terms">
 
 		<label for="state-search"> Search by State</label>
-		<input class="js-state-search" type="text" name="state-search" placeholder="WA" maxlength="2">
-		<input for="state-search" class="js-add-state" type="button" name="add-state" value="Add to Search">
-		<ul class="js-states-list">
-		</ul>
+		<input class="js-state-search" type="text" name="state-search" placeholder="WA" maxlength="2"><br>
 
 		<label for="maxResults">Max number of Results</label>
-		<input class="js-maxResult" type="number" name="maxResults" default="10" maxlength="2" min="5" max="50">
+		<input class="js-maxResult" type="number" name="maxResults" default="10" maxlength="2" min="1" max="50"><br>
 
 		<input type="submit" name="search" value="Search"> 
 	</form>
 
-	<a href="https://developer.nps.gov/api/v1/parks?q=forest&api_key=43MwYCVPjSmg3YJxXEaUwf3BM9vH1RvRviKofC1P" target="_blank" > Link </a>
+	<a href="https://developer.nps.gov/api/v1/parks?q=forest&limit=5&api_key=43MwYCVPjSmg3YJxXEaUwf3BM9vH1RvRviKofC1P" target="_blank" > Link </a>
 
-	<div class="results">
+
+	<div>
+		<p id="js-error-message"></p>
+
+		<ul class="results">
+		</ul>
 	</div>
 
 	<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js'></script>

@@ -1,5 +1,17 @@
-li {
-	background-color: lightgrey;
-	border: solid 2px grey;
-	border-radius: 8%;
+body {
+	font-family: sans-serif;
+}
+
+.js-state-search {
+	width: 40px;
+}
+
+input[type=text] {
+	margin: 5px;
+	padding: 5px;
+}
+
+input[type=number] {
+	margin: 5px;
+	padding: 5px;
 }
