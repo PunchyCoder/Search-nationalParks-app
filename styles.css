@@ -1,9 +1,17 @@
-body {
+ body {
 	font-family: sans-serif;
 }
 
 .js-state-search {
 	width: 40px;
+}
+
+li {
+	list-style-type: none;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	border-bottom: dotted 1px grey;
+
 }
 
 input[type=text] {
@@ -14,4 +22,9 @@ input[type=text] {
 input[type=number] {
 	margin: 5px;
 	padding: 5px;
+}
+
+footer {
+	padding-top: 20px;
+	padding-bottom: 10px;
 }

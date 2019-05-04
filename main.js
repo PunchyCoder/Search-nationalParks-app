@@ -1,14 +1,11 @@
- 
+  
 "use strict";
 
-// const stateAbbrvList = [  'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL',
-//                           "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", 'MO', 'MT', 
-//                           "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI",
-//                           "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY" ]
-
+// -- -- --GLOBAL VARIABLES-- -- --
 const searchURL = 'https://developer.nps.gov/api/v1/parks';
 const apiKey = '43MwYCVPjSmg3YJxXEaUwf3BM9vH1RvRviKofC1P';
 let statesList = []; // when state field is entered, push state code to array --statesList
+
 
 function formatQueryParams(params) { //   not combining params, nedds debugging...
   const queryItems = Object.keys(params)
@@ -20,15 +17,17 @@ function formatQueryParams(params) { //   not combining params, nedds debugging.
 function displayResults(responseJson) {
   // empty previous results
   $(".results").empty();
+  $(".results").append(`<h2 style="color:orange;">Search Results</h2>`);
 
   // loop through results
-  for (let i = 0; i < responseJson["data"].length; i++) {
+  for (let i = 0; i < responseJson["data"].length-1; i++) {
 
     console.log("displaying results...");
     //   --append newResult
     $(".results").append(`<li>
-          <h3>${responseJson["data"][i].fullName}</h3>
-          <p></p>
+          <h3>${responseJson["data"][i].fullName}, ${responseJson["data"][i].states} </h3>
+          <p>${responseJson["data"][i].description}</p>
+          <a href="${responseJson["data"][i].url}" target="_blank">Visit Website</a>
       </li>`
     );
   }
@@ -83,10 +82,11 @@ function watchForm() {
     const stateCode = $('.js-state-search').val();
     const searchTerms = $('.js-searchTerm').val();
     let maxResults = $('.js-maxResults').val();
-    
-    if (maxResults === undefined) {
+    console.log(maxResults)
+    if (maxResults == '') {
       maxResults = 10;
     }
+    console.log(maxResults)
     getResponse(searchTerms, maxResults, stateCode);
 
   });
