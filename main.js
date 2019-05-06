@@ -57,8 +57,31 @@ function getResponse(query, max, state) {
       });
 }
 
+function addStates(state) {
+  stateList.push(state);
+  $('.state-pills').append(`<p class="pill">${state}</p>`);
+  $('.js-state-search').val('');
+  return stateList;
+}
+
+function checkStateList(state) {
+  if (state_Codes.includes(state) && !stateList.includes(state)) {
+    addStates(state);
+  } else{console.log(false)
+    // error: state already in List!
+    $('.js-state-search').val('');
+    $(".js-state-error").fadeIn(100);
+    $(".js-state-error").fadeOut(4000);
+  };
+}
+
 function watchForm() {
+  $('.js-add-state-btn').on("click", (e) => {
+    const state = $('.js-state-search').val().toUpperCase();
+    checkStateList(state);
+  })
   $('form').submit(event => {
+    console.log(stateList) // console.log
     event.preventDefault();
     const stateCode = $('.js-state-search').val();
     const searchTerms = $('.js-searchTerm').val();
@@ -66,7 +89,7 @@ function watchForm() {
     if (maxResults == '') {
       maxResults = 10;
     }
-    getResponse(searchTerms, maxResults, stateCode);
+    getResponse(searchTerms, maxResults, stateList);
   });
 }
 
