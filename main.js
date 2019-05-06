@@ -18,6 +18,7 @@ function formatQueryParams(params) {
 function displayResults(responseJson) {
   $(".results").empty();
   $(".results").append(`<h2 style="color:orange;">Search Results</h2>`);
+  $('.state-pills').empty();
 
   for (let i = 0; i < responseJson["data"].length-1; i++) {
 
@@ -46,6 +47,8 @@ function getResponse(query, max, stateList) {
   const queryString = formatQueryParams(params);
   const url = searchURL + '?' + queryString;
   console.log(url); // console.log
+  
+  stateList.length = 0;
 
 fetch(url)
     .then(response => {
