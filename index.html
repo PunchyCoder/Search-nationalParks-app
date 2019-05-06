@@ -7,17 +7,22 @@
 <body>
 
 	<form>
-		<label for="searchTerm">Search for Parks!</label>
-		<input class="js-searchTerm" type="text" name="searchTerm" placeholder="Search Terms">
+	      <label for="searchTerm">Search for Parks!</label>
+	      <input class="js-searchTerm" type="text" name="searchTerm" placeholder="Search Terms">
 
-		<label for="state-search"> Search by State</label>
-		<input class="js-state-search" type="text" name="state-search" placeholder="WA" maxlength="2"><br>
+	      <label for="state-search"> Search by State</label>
+	      <input class="js-state-search" type="text" name="state-search" placeholder="az" maxlength="2">
+	      <input class="js-add-state-btn" type="button" name="add-state" value="Add">
+	      <p class="js-state-error">The state code you entered is either made-up or has already been added.</p>
+	      <br>
 
-		<label for="maxResults">Max number of Results</label>
-		<input class="js-maxResults" type="number" name="maxResults" default="10" maxlength="2" min="1" max="50" placeholder="10"><br>
+	      <div class="state-pills"></div>
 
-		<input type="submit" name="search" value="Search"> 
-	</form>
+	      <label for="maxResults">Max number of Results</label>
+	      <input class="js-maxResults" type="number" name="maxResults" default="10" maxlength="2" min="1" max="50" placeholder="10"><br>
+
+	      <input type="submit" name="search" value="Search"> 
+    	</form>
 
 	<section>
 		<p id="js-error-message" style="color:red;"></p>
